@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'CadastroScreen.dart';
 
 class LoginPage extends StatelessWidget {
  @override
@@ -93,16 +94,23 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 10.0),
-                      Align(
-                        alignment: Alignment.center,
-                        child: Text(
-                          "Não tem uma conta? Cadastre-se",
-                          style: TextStyle(
-                            color: Colors.white, // Cor do texto do link "Não tem uma conta? Cadastre-se"
-                            decoration: TextDecoration.underline,
-                          ),
-                        ),
-                      ),
+                   // Botão para navegar para a tela de cadastro
+                      TextButton(
+                      onPressed: () {
+                      // Adicione aqui a lógica de navegação para a tela de cadastro
+                       Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CadastroScreen()),
+                    );
+                      },
+                     child: Text(
+                     "Não tem uma conta? Cadastre-se",
+                      style: TextStyle(
+                      color: Colors.white,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
                     ],
                   ),
                 ),
