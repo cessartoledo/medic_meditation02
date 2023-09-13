@@ -1,7 +1,6 @@
-
-
 import 'package:flutter/material.dart';
-import 'CadastroScreen.dart';
+import 'cadastroScreen.dart';
+import 'pg_principal.dart';
 
 class LoginPage extends StatelessWidget {
  @override
@@ -82,6 +81,10 @@ class LoginScreen extends StatelessWidget {
                         onPressed: () {
                           // Adicione aqui a lógica de autenticação
                           // Por exemplo, verificar as credenciais e fazer login
+                           Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Pg_Principal()),
+                    );
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xFF729899), // Cor de fundo do botão #729899
@@ -93,8 +96,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10.0),
-                   // Botão para navegar para a tela de cadastro
+                      SizedBox(height: 10.0), // Botão para navegar para a tela de cadastro
                       TextButton(
                       onPressed: () {
                       // Adicione aqui a lógica de navegação para a tela de cadastro
