@@ -1,71 +1,112 @@
 import 'package:flutter/material.dart';
 import 'pg_login.dart';
 import 'cadastroScreen.dart';
+export 'pg_principal.dart';
 
 
 
 class Pg_Principal extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
+
+     final List<String> sugestoes = [
+    'Sugestão 1',
+    'Sugestão 2',
+    'Sugestão 3',
+    'Sugestão 4',
+    'Sugestão 5',
+    'Sugestão 6',
+    'Sugestão 7',
+    'Sugestão 8',
+    'Sugestão 9',
+    'Sugestão 10',
+    'Sugestão 11',
+    'Sugestão 12',
+    // Adicione mais sugestões conforme necessário
+   ];
+
+   @override
+   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF283637),
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu, // Ícone do menu (substitua pelo ícone desejado)
-            color: Colors.white, // Cor do ícone
-          ),
-          onPressed: () {
-            _openMenu(context);
-          },
-        ),
-        centerTitle: false, // Alinhe o título à esquerda
-                   title: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                    // Imagem centralizada na AppBar
-                      GestureDetector(
-                     onTap: () {
-                           Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()),
-                    );
-                      },
-                     child: Image.asset(
-                     'assets/imagens/logo.png', // Substitua pelo caminho da sua imagem
-                      width: 24, // Ajuste o tamanho da imagem conforme necessário
-                      height: 24,
-                     //color: Colors.white, // Cor da imagem (opcional)
-                     ),
-                    ),
-                   ],
-                  ),
-        
-     
 
-          
-
-        actions: <Widget>[
-          // Adicione botões adicionais aqui
-          
-
-          IconButton(
-            icon: Icon(
-              Icons.settings, // Ícone do botão de configurações (substitua pelo ícone desejado)
-              color: Colors.white, // Cor do ícone
-            ),
-            onPressed: () {
-              // Adicione a lógica para o botão de configurações aqui
-            },
-          ),
-        ],
-      ),
-     
-     
-
+      
       backgroundColor: Color(0xFF283637), // Cor de fundo
+
       body: Column(
         children: <Widget>[
+            AppBar(
+  backgroundColor: Color(0xFF283637),
+  leading: IconButton(
+    icon: Icon(
+      Icons.menu,
+      color: Colors.white,
+    ),
+    onPressed: () {
+      _openMenu(context);
+    },
+  ),
+  centerTitle: false,
+  title: Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginScreen()),
+          );
+        },
+        child: Container(
+          width: 48, // Tamanho do círculo
+          height: 48,
+          child: Center(
+            child: ClipOval(
+              child: Image.asset(
+                'assets/imagens/logo.png', // Substitua pelo caminho da sua imagem
+                width: 48, // Tamanho da imagem igual ao diâmetro do círculo
+                height: 48,
+              ),
+            ),
+          ),
+        ),
+      ),
+    ],
+  ),
+  
+  actions: [
+    GestureDetector(
+      onTap: () {
+        // Ação quando o segundo círculo é pressionado
+      },
+      child: Container(
+        width: 25, // Tamanho do segundo círculo
+        height: 25,
+        child: Center(
+          child: ClipOval(
+            child: Image.asset(
+              'assets/imagens/logo.png', // Substitua pelo caminho da segunda imagem
+              width: 25, // Tamanho da imagem igual ao diâmetro do círculo
+              height: 25,
+            ),
+          ),
+        ),
+      ),
+    ),
+  ],
+),
+
+      
+
+
+
+
+
+
+    
+
+
+
+
+       
+        
           Padding(
             padding: EdgeInsets.all(16.0),
             child: Container(
@@ -130,13 +171,69 @@ class Pg_Principal extends StatelessWidget {
               ),
             ),
           ),
-          Text(
-            'Outros widgets abaixo do Container',
-            style: TextStyle(fontSize: 18),
-          ),
-          // Adicione mais widgets aqui conforme necessário
-        ],
+          
+         Expanded(
+      child: ListView.builder(
+        itemCount: sugestoes.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              leading: Image.asset('assets/imagens/logo.png'), // Substitua pelo caminho da imagem desejada
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Título da Sugestão'), // Título à esquerda
+                  Text('Tempo: 5:00'), // Tempo à direita
+                ],
+              ),
+              subtitle: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(Icons.favorite),
+                  Text('Likes: 100'), // Substitua pelo número real de likes
+                ],
+              ),
+              onTap: () {
+                // Adicione a lógica para ação ao clicar na sugestão
+              },
+            ),
+          );
+        },
       ),
+    ),
+
+  ],
+),
+            
+ 
+      
+        bottomNavigationBar: BottomAppBar(
+        color: Color(0xFF283637), // Cor de fundo da barra
+        elevation: 0, // Remove a sombra da barra
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.home, color: Colors.white),
+              onPressed: () {
+                // Adicione a lógica para ação do botão "Home" aqui
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.favorite, color: Colors.white),
+              onPressed: () {
+                // Adicione a lógica para ação do botão "Favoritos" aqui
+              },
+            ),
+            IconButton(
+              icon: Icon(Icons.search, color: Colors.white),
+              onPressed: () {
+                // Adicione a lógica para ação do botão "Pesquisa" aqui
+               },
+             ),
+           ],
+         ),
+       ),
     );
   }
 
