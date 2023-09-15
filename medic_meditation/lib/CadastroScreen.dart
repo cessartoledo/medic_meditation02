@@ -23,7 +23,7 @@ class CadastroScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Text(
-                  'Inscreva-se ', // Texto acima do campo "Nome"
+                  'Inscreva-se', // Texto acima do campo "Nome"
                   style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
@@ -40,56 +40,70 @@ class CadastroScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20.0),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'Nome',
-                    labelStyle: TextStyle(
-                            color: Colors.white, // Cor do texto do rótulo (label)
-                          ),
-                  ),
-                ),
-                SizedBox(height: 10.0),
-                TextField(
-                  decoration: InputDecoration(
-                    labelText: 'E-mail',
-                    labelStyle: TextStyle(
-                            color: Colors.white, // Cor do texto do rótulo (label)
-                          ),
-                  ),
-                ),
-                SizedBox(height: 10.0),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    labelText: 'Senha',
-                    labelStyle: TextStyle(
-                            color: Colors.white, // Cor do texto do rótulo (label)
-                          ),
-                    
-                  ),
-                ),
+                buildTextField('Nome', 'E-mail', 'Senha'),
                 SizedBox(height: 20.0),
-                ElevatedButton(
-                  onPressed: () {
-                    // Adicione aqui a lógica de cadastro
-                    // Por exemplo, enviar dados para um servidor ou salvar localmente
-                    // Após o cadastro, você pode redirecionar o usuário para a tela de login
-                    Navigator.pop(context); // Fecha a tela de cadastro e volta para a tela de login
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF729899), // Cor de fundo do botão #729899
-                  ),
-                  child: Text(
-                    'Cadastrar',
-                    style: TextStyle(
-                      color: Colors.white, // Cor do texto do botão
-                    ),
-                  ),
-                ),
+                buildElevatedButton('Cadastrar', context),
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget buildTextField(String labelText, String hintText, String labelTextPassword) {
+    return Column(
+      children: [
+        TextField(
+          decoration: InputDecoration(
+            labelText: labelText,
+            hintText: hintText,
+            labelStyle: TextStyle(
+              color: Colors.white, // Cor do texto do rótulo (label)
+            ),
+          ),
+        ),
+        SizedBox(height: 10.0),
+        TextField(
+          obscureText: true,
+          decoration: InputDecoration(
+            labelText: labelTextPassword,
+            hintText: 'Senha',
+            labelStyle: TextStyle(
+              color: Colors.white, // Cor do texto do rótulo (label)
+            ),
+          ),
+        ),
+        SizedBox(height: 10.0),
+        TextField(
+          decoration: InputDecoration(
+            labelText: 'E-mail',
+            hintText: 'E-mail',
+            labelStyle: TextStyle(
+              color: Colors.white, // Cor do texto do rótulo (label)
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget buildElevatedButton(String text, BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        // Adicione aqui a lógica de cadastro
+        // Por exemplo, enviar dados para um servidor ou salvar localmente
+        // Após o cadastro, você pode redirecionar o usuário para a tela de login
+        Navigator.pop(context); // Fecha a tela de cadastro e volta para a tela de login
+      },
+      style: ElevatedButton.styleFrom(
+        primary: Color(0xFF729899), // Cor de fundo do botão #729899
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.white, // Cor do texto do botão
+        ),
       ),
     );
   }

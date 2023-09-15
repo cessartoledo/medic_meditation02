@@ -3,129 +3,122 @@ import 'cadastroScreen.dart';
 import 'pg_principal.dart';
 
 class LoginPage extends StatelessWidget {
- @override
- Widget build(BuildContext context) {
-    return MaterialApp(
-      home: LoginScreen(),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: LoginScreen(),
     );
   }
 }
 
 class LoginScreen extends StatelessWidget {
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/imagens/fundo01.png'), // Substitua pelo caminho correto da sua imagem
+            image: AssetImage('assets/imagens/fundo01.png'),
             fit: BoxFit.cover,
           ),
         ),
         child: Center(
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      Text(
-                        'Bem-vindo ao Medic Free Meditation',
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white, // Cor do texto do título
-                        ),
-                      ),
-                      SizedBox(height: 20.0),
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: 'E-mail',
-                          labelStyle: TextStyle(
-                            color: Colors.white, // Cor do texto do rótulo (label)
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20.0),
-                      TextField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                          labelText: 'Senha',
-                          labelStyle: TextStyle(
-                            color: Colors.white, // Cor do texto do rótulo (label)
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 10.0),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {
-                            // Adicione aqui a lógica para redefinir a senha
-                          },
-                          child: Text(
-                            'Esqueceu a senha?',
-                            style: TextStyle(
-                              color: Colors.white, // Cor do texto do botão "Esqueceu a senha?"
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 20.0),
-                      ElevatedButton(
-                        onPressed: () {
-                          // Adicione aqui a lógica de autenticação
-                          // Por exemplo, verificar as credenciais e fazer login
-                           Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Pg_Principal()),
-                    );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          primary: Color(0xFF729899), // Cor de fundo do botão #729899
-                        ),
-                        child: Text(
-                          'Entrar',
-                          style: TextStyle(
-                            color: Colors.white, // Cor do texto do botão
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 10.0), // Botão para navegar para a tela de cadastro
-                      TextButton(
-                      onPressed: () {
-                      // Adicione aqui a lógica de navegação para a tela de cadastro
-                       Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => CadastroScreen()),
-                    );
-                      },
-                     child: Text(
-                     "Não tem uma conta? Cadastre-se",
-                      style: TextStyle(
-                      color: Colors.white,
-                      decoration: TextDecoration.underline,
-                    ),
-                  ),
-                ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            child: buildLoginForm(context),
           ),
         ),
       ),
     );
   }
+
+  Widget buildLoginForm(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Text(
+            'Bem-vindo ao Medic Free Meditation',
+            style: TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(height: 20.0),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'E-mail',
+              labelStyle: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          SizedBox(height: 20.0),
+          TextField(
+            obscureText: true,
+            decoration: InputDecoration(
+              labelText: 'Senha',
+              labelStyle: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          SizedBox(height: 10.0),
+          Align(
+            alignment: Alignment.centerRight,
+            child: TextButton(
+              onPressed: () {
+                // Lógica para redefinir a senha
+              },
+              child: Text(
+                'Esqueceu a senha?',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 20.0),
+          ElevatedButton(
+            onPressed: () {
+              // Lógica de autenticação
+              // Por exemplo, verificar as credenciais e fazer login
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Pg_Principal()),
+              );
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Color(0xFF729899),
+            ),
+            child: Text(
+              'Entrar',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          SizedBox(height: 10.0),
+          TextButton(
+            onPressed: () {
+              // Navegação para a tela de cadastro
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CadastroScreen()),
+              );
+            },
+            child: Text(
+              "Não tem uma conta? Cadastre-se",
+              style: TextStyle(
+                color: Colors.white,
+                decoration: TextDecoration.underline,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
- 
-
-
-
-  
