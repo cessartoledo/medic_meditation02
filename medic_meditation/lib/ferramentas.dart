@@ -9,11 +9,13 @@ class Ferramentas extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
       backgroundColor: Color(0xFF283637),
-      appBar: buildAppBar(context),
+      
       
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            buildAppBar(context),
+            
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(

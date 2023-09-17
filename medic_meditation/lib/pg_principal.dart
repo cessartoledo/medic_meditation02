@@ -24,9 +24,10 @@ class Pg_Principal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF283637),
-      appBar: buildAppBar(context),
+     
       body: Column(
         children: <Widget>[
+          buildAppBar(context),
           buildTopContainer(context),
           buildSuggestionsList(),
         ],

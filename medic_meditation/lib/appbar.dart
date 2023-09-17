@@ -3,7 +3,7 @@ import 'pg_login.dart';
 import 'cadastroScreen.dart';
 import 'ferramentas.dart';
 
-AppBar buildAppBar(BuildContext context) {
+Widget buildAppBar(BuildContext context) {
   return AppBar(   
   backgroundColor: Color(0xFF283637),
   leading: IconButton(
