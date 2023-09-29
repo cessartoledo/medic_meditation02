@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'routegenerator.dart';
 
 class CadastroScreen extends StatelessWidget {
   @override
@@ -94,7 +95,11 @@ class CadastroScreen extends StatelessWidget {
         // Adicione aqui a lógica de cadastro
         // Por exemplo, enviar dados para um servidor ou salvar localmente
         // Após o cadastro, você pode redirecionar o usuário para a tela de login
-        Navigator.pop(context); // Fecha a tela de cadastro e volta para a tela de login
+
+
+         Navigator.pushReplacementNamed(context, RouteGenerator.initialRoute);
+
+// Fecha a tela de cadastro e volta para a tela de login
       },
       style: ElevatedButton.styleFrom(
         primary: Color(0xFF729899), // Cor de fundo do botão #729899

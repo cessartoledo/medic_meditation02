@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pg_login.dart';
-import 'cadastroScreen.dart';
-import 'ferramentas.dart';
+import 'routegenerator.dart';
 
 Widget buildAppBar(BuildContext context) {
   return AppBar(   
@@ -21,10 +20,8 @@ Widget buildAppBar(BuildContext context) {
     children: [
       GestureDetector(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => LoginScreen()),
-          );
+          
+            Navigator.pushReplacementNamed(context, RouteGenerator.initialRoute);
         },
         child: Container(
           width: 48, // Tamanho do círculo
@@ -46,10 +43,11 @@ Widget buildAppBar(BuildContext context) {
   actions: [
     GestureDetector(
       onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Ferramentas()),
-          );
+
+
+         Navigator.pushReplacementNamed(context,'/ferramentas' );
+        
+        
       },
       child: Container(
         width: 25, // Tamanho do segundo círculo
@@ -124,22 +122,13 @@ Widget buildAppBar(BuildContext context) {
     );
   }
   void _navigateToPage2(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => CadastroScreen()),
-    );
+     Navigator.pushReplacementNamed(context, '/cadastro');
   }
    void _navigateToPage3(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
-    );
+        Navigator.pushReplacementNamed(context, RouteGenerator.initialRoute);
   }
   void _navigateToPage4(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
-    );
+        Navigator.pushReplacementNamed(context, RouteGenerator.initialRoute);
   }
 
   

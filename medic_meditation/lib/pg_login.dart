@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'cadastroScreen.dart';
-import 'pg_principal.dart';
+
 
 class LoginPage extends StatelessWidget {
   @override
@@ -85,10 +84,7 @@ class LoginScreen extends StatelessWidget {
             onPressed: () {
               // Lógica de autenticação
               // Por exemplo, verificar as credenciais e fazer login
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => Pg_Principal()),
-              );
+               Navigator.pushReplacementNamed(context,'/pg_principal' );
             },
             style: ElevatedButton.styleFrom(
               primary: Color(0xFF729899),
@@ -101,22 +97,20 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10.0),
-          TextButton(
-            onPressed: () {
+
+             TextButton(
+             onPressed: () {
               // Navegação para a tela de cadastro
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CadastroScreen()),
-              );
-            },
-            child: Text(
-              "Não tem uma conta? Cadastre-se",
-              style: TextStyle(
-                color: Colors.white,
-                decoration: TextDecoration.underline,
+                Navigator.pushReplacementNamed(context, '/cadastro');
+                  },
+              child: Text(
+                 "Não tem uma conta? Cadastre-se",
+                  style: TextStyle(
+                   color: Colors.white,
+                    decoration: TextDecoration.underline,
+                  ),
               ),
-            ),
-          ),
+           ),
         ],
       ),
     );

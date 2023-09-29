@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'buildBottomAppBar.dart';
 import 'appbar.dart';
-import 'play.dart';
 
 class Pg_Principal extends StatelessWidget {
   final List<String> sugestoes = [
@@ -85,12 +84,11 @@ class Pg_Principal extends StatelessWidget {
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Play()),
-                    );
-                  },
-                ),
+                       // Lógica de autenticação
+                      // Por exemplo, verificar as credenciais e fazer login
+                        Navigator.pushReplacementNamed(context, '/play');
+                         },
+                    ),
                 Text(
                   'Play Now',
                   style: TextStyle(
