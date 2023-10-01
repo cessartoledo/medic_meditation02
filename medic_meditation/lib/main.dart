@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'RouteGenerator.dart'; // Importe a classe RouteGenerator
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart'; // Importe o provider
+import 'RouteGenerator.dart';
+import 'seu_provider.dart'; // Importe o seu provider
 
 void main() {
-  
-  runApp(MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => SuaClasseProvider(),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -17,5 +22,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 

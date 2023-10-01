@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'seu_provider.dart';
 
 
 class LoginPage extends StatelessWidget {
@@ -68,9 +70,16 @@ class LoginScreen extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () {
-                // Lógica para redefinir a senha
-              },
+              onPressed: () async {
+            // Utilize o Provider para acessar a classe Provider
+             SuaClasseProvider provider = Provider.of<SuaClasseProvider>(context, listen: false);
+
+            // Lógica de autenticação usando o Provider
+            await provider.autenticar('email', 'senha');
+
+            // Navegar para a próxima tela após a autenticação
+            Navigator.pushReplacementNamed(context, '/pg_principal');
+          },      
               child: Text(
                 'Esqueceu a senha?',
                 style: TextStyle(
